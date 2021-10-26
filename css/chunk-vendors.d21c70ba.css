@@ -5958,15 +5958,13 @@
     flex-direction: column
 }
 
-.el-footer,
-.el-header {
+.el-footer {
     padding: 0 20px;
     -ms-flex-negative: 0;
     flex-shrink: 0
 }
 
 .el-footer,
-.el-header,
 .el-main {
     -webkit-box-sizing: border-box;
     box-sizing: border-box
@@ -6098,7 +6096,8 @@
 }
 
 .el-table--hidden,
-.el-table .el-table__cell.is-hidden>* {
+.el-table td.is-hidden>*,
+.el-table th.is-hidden>* {
     visibility: hidden
 }
 
@@ -6113,7 +6112,7 @@
 
 .el-checkbox,
 .el-checkbox-button__inner,
-.el-table th.el-table__cell {
+.el-table th {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none
@@ -7057,7 +7056,8 @@
     border-bottom: 0
 }
 
-.el-table--fit .el-table__cell.gutter {
+.el-table--fit td.gutter,
+.el-table--fit th.gutter {
     border-right-width: 1px
 }
 
@@ -7074,11 +7074,17 @@
     font-weight: 500
 }
 
-.el-table thead.is-group th.el-table__cell {
+.el-table thead.is-group th {
     background: #f5f7fa
 }
 
-.el-table .el-table__cell {
+.el-table th,
+.el-table tr {
+    background-color: #fff
+}
+
+.el-table td,
+.el-table th {
     padding: 12px 0;
     min-width: 0;
     -webkit-box-sizing: border-box;
@@ -7089,65 +7095,67 @@
     text-align: left
 }
 
-.el-table .el-table__cell.is-center {
+.el-table td.is-center,
+.el-table th.is-center {
     text-align: center
 }
 
-.el-table .el-table__cell.is-right {
+.el-table td.is-right,
+.el-table th.is-right {
     text-align: right
 }
 
-.el-table .el-table__cell.gutter {
+.el-table td.gutter,
+.el-table th.gutter {
     width: 15px;
     border-right-width: 0;
     border-bottom-width: 0;
     padding: 0
 }
 
-.el-table--medium .el-table__cell {
+.el-table--medium td,
+.el-table--medium th {
     padding: 10px 0
 }
 
-.el-table--small .el-table__cell {
+.el-table--small td,
+.el-table--small th {
     padding: 8px 0
 }
 
-.el-table--mini .el-table__cell {
+.el-table--mini td,
+.el-table--mini th {
     padding: 6px 0
 }
 
-.el-table--border .el-table__cell:first-child .cell,
+.el-table--border td:first-child .cell,
+.el-table--border th:first-child .cell,
 .el-table .cell {
     padding-left: 10px
-}
-
-.el-table tr {
-    background-color: #fff
 }
 
 .el-table tr input[type=checkbox] {
     margin: 0
 }
 
-.el-table td.el-table__cell,
-.el-table th.el-table__cell.is-leaf {
+.el-table td,
+.el-table th.is-leaf {
     border-bottom: 1px solid #ebeef5
 }
 
-.el-table th.el-table__cell.is-sortable {
+.el-table th.is-sortable {
     cursor: pointer
 }
 
-.el-table th.el-table__cell {
+.el-table th {
     overflow: hidden;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
-    background-color: #fff
+    user-select: none
 }
 
-.el-table th.el-table__cell>.cell {
+.el-table th>.cell {
     display: inline-block;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -7158,11 +7166,11 @@
     width: 100%
 }
 
-.el-table th.el-table__cell>.cell.highlight {
+.el-table th>.cell.highlight {
     color: #409eff
 }
 
-.el-table th.el-table__cell.required>div:before {
+.el-table th.required>div:before {
     display: inline-block;
     content: "";
     width: 8px;
@@ -7173,12 +7181,12 @@
     vertical-align: middle
 }
 
-.el-table td.el-table__cell div {
+.el-table td div {
     -webkit-box-sizing: border-box;
     box-sizing: border-box
 }
 
-.el-table td.el-table__cell.gutter {
+.el-table td.gutter {
     width: 0
 }
 
@@ -7236,17 +7244,18 @@
     border-color: transparent
 }
 
-.el-table--border .el-table__cell,
+.el-table--border td,
+.el-table--border th,
 .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
     border-right: 1px solid #ebeef5
 }
 
-.el-table--border th.el-table__cell.gutter:last-of-type {
+.el-table--border th.gutter:last-of-type {
     border-bottom: 1px solid #ebeef5;
     border-bottom-width: 1px
 }
 
-.el-table--border th.el-table__cell,
+.el-table--border th,
 .el-table__fixed-right-patch {
     border-bottom: 1px solid #ebeef5
 }
@@ -7308,7 +7317,7 @@
     z-index: 3
 }
 
-.el-table__fixed-footer-wrapper tbody td.el-table__cell {
+.el-table__fixed-footer-wrapper tbody td {
     border-top: 1px solid #ebeef5;
     background-color: #f5f7fa;
     color: #606266
@@ -7332,7 +7341,7 @@
     margin-top: -1px
 }
 
-.el-table__footer-wrapper td.el-table__cell {
+.el-table__footer-wrapper td {
     border-top: 1px solid #ebeef5
 }
 
@@ -7348,8 +7357,8 @@
     overflow: hidden
 }
 
-.el-table__footer-wrapper tbody td.el-table__cell,
-.el-table__header-wrapper tbody td.el-table__cell {
+.el-table__footer-wrapper tbody td,
+.el-table__header-wrapper tbody td {
     background-color: #f5f7fa;
     color: #606266
 }
@@ -7422,22 +7431,22 @@
     z-index: -1
 }
 
-.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+.el-table--striped .el-table__body tr.el-table__row--striped td {
     background: #fafafa
 }
 
-.el-table--striped .el-table__body tr.el-table__row--striped.current-row td.el-table__cell {
+.el-table--striped .el-table__body tr.el-table__row--striped.current-row td {
     background-color: #ecf5ff
 }
 
-.el-table__body tr.hover-row.current-row>td.el-table__cell,
-.el-table__body tr.hover-row.el-table__row--striped.current-row>td.el-table__cell,
-.el-table__body tr.hover-row.el-table__row--striped>td.el-table__cell,
-.el-table__body tr.hover-row>td.el-table__cell {
+.el-table__body tr.hover-row.current-row>td,
+.el-table__body tr.hover-row.el-table__row--striped.current-row>td,
+.el-table__body tr.hover-row.el-table__row--striped>td,
+.el-table__body tr.hover-row>td {
     background-color: #f5f7fa
 }
 
-.el-table__body tr.current-row>td.el-table__cell {
+.el-table__body tr.current-row>td {
     background-color: #ecf5ff
 }
 
@@ -7464,12 +7473,12 @@
     transform: scale(.75)
 }
 
-.el-table--enable-row-transition .el-table__body td.el-table__cell {
+.el-table--enable-row-transition .el-table__body td {
     -webkit-transition: background-color .25s ease;
     transition: background-color .25s ease
 }
 
-.el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell {
+.el-table--enable-row-hover .el-table__body tr:hover>td {
     background-color: #f5f7fa
 }
 
@@ -7490,9 +7499,9 @@
 
 .el-button-group>.el-button.is-active,
 .el-button-group>.el-button.is-disabled,
-.el-button-group>.el-button:not(.is-disabled):active,
-.el-button-group>.el-button:not(.is-disabled):focus,
-.el-button-group>.el-button:not(.is-disabled):hover {
+.el-button-group>.el-button:active,
+.el-button-group>.el-button:focus,
+.el-button-group>.el-button:hover {
     z-index: 1
 }
 

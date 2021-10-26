@@ -278,12 +278,6 @@
     padding: 35px !important
 }
 
-#app-header {
-    height: 40px;
-    background-color: #000;
-    color: #fff
-}
-
 body {
     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, 微软雅黑, Arial, sans-serif;
     font-size: 14px;
